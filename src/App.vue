@@ -1,22 +1,6 @@
 <template>
   <div id="app">
-    <post 
-     image="Ji9qebSpSlSbnsWRZnDX__MG_9520.jpg"
-     title="Are we out of the woods yet?" 
-     author="Bob Loblaw"
-     date="August 6, 2015"
-     :tags="['environment', 'swift', 'fungus']"
-     content= "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non consequat ligula. Aenean efficitur tellus eu egestas mollis. Aenean ultrices sodales purus, a sodales ex imperdiet ut. Curabitur molestie eget diam id feugiat. Sed dignissim metus ut mauris varius lacinia. Fusce non felis quis libero finibus convallis. Suspendisse tincidunt nibh et placerat bibendum. Etiam ornare sit amet felis id commodo. Nunc id luctus metus. Aenean in felis et sapien volutpat dapibus quis quis massa. Donec sodales, arcu facilisis imperdiet fringilla, lectus lacus viverra orci, at malesuada mi lorem a ligula. Nullam eu lorem finibus, tincidunt nisi vitae, ornare lorem. Maecenas id semper dui. Vivamus in felis mi.
-
-Etiam a tellus eu lorem scelerisque laoreet. Donec nec vehicula diam. Sed risus arcu, egestas eu urna sed, rhoncus accumsan odio. Vivamus vitae congue odio. Donec a commodo eros, eu eleifend odio. Donec interdum interdum sapien, eget viverra turpis venenatis id. Nullam ultricies, ligula a dictum blandit, lorem metus pellentesque nibh, id fringilla purus sapien eu ligula. Aenean bibendum lobortis vestibulum. Phasellus hendrerit sollicitudin ante, placerat imperdiet mi. Nam ultricies dolor elementum aliquet lobortis. Phasellus tincidunt imperdiet ipsum, in venenatis lorem tempus eget. Nam in dapibus diam, id convallis tortor. Nunc in ultrices tellus, eget consequat nisl.
-
-Vestibulum porttitor nulla id velit tristique, sit amet fringilla elit euismod. Duis urna magna, condimentum quis orci eu, tristique posuere justo. Nullam fermentum neque ligula, sit amet convallis mi feugiat eu. Morbi sollicitudin sem nec tellus venenatis, a faucibus lectus finibus. Ut eu aliquet nibh. Cras tristique nulla at enim condimentum convallis. Nam eu interdum nunc, quis venenatis urna. Nulla mattis ut nibh id ornare. Etiam sed orci a sem efficitur malesuada. Sed mattis elementum urna a fringilla. Suspendisse potenti.
-
-Phasellus gravida sit amet tellus sit amet sagittis. Nam ac tempor lectus, at iaculis nulla. Nam eu posuere eros. In iaculis diam a turpis pretium faucibus. Etiam volutpat feugiat nisl non lacinia. Ut aliquam elementum sem, aliquet convallis arcu accumsan ultrices. Donec porttitor tortor sit amet vulputate finibus. Morbi erat risus, laoreet vel ex tristique, pretium fermentum mauris. Cras vel ante nulla.
-
-Sed lectus ligula, tincidunt vitae ullamcorper quis, pulvinar quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean ultrices posuere risus eu dignissim. Praesent efficitur, tortor sit amet rhoncus dapibus, erat elit dignissim erat, a varius mauris turpis at neque. Suspendisse quis aliquet neque, non aliquet leo. Suspendisse purus quam, cursus quis ligula ut, placerat tincidunt elit. Fusce a mauris id justo pellentesque pellentesque et at tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tristique a purus et tincidunt. Suspendisse dictum neque id sagittis consectetur. Maecenas ultricies viverra eros id euismod. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-    
-    />
+    <post v-bind="postData" />
   </div>
 </template>
 
@@ -25,6 +9,41 @@ import post from './components/post.vue'
 
 export default {
   name: 'app',
+  data: function() {
+    return {
+      postData: {
+        title: "Are we out of the woods yet?" ,
+        author: "Bob Loblaw",
+        date: "August 6, 2015",
+        tags: ["environment", "swift", "fungus"],
+        image: "Ji9qebSpSlSbnsWRZnDX__MG_9520.jpg",
+        content: `<p><span class="post_location">New York, NY.</span> Nunc eu ullamcorper orci. Quisque eget odio ac lectus 
+                  vestibulum faucibus eget in metus. In pellentesque faucibus 
+                  vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis 
+                  aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia 
+                  scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet 
+                  arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, 
+                  per inceptos himenaeos. Sed molestie augue sit amet leo consequat 
+                  posuere.</p><p>
+                  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere 
+                  cubilia Curae; Proin vel ante a orci tempus eleifend ut et magna. Lorem 
+                  ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna 
+                  sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. 
+                  Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod 
+                  semper, magna diam porttitor mauris, quis sollicitudin sapien justo in 
+                  libero. Vestibulum mollis mauris enim. </p><p class='post_pull-quote'>Looking at it now, last December. We were built to fall apart. Then fall back together.</p><p>Morbi euismod magna ac lorem rutrum elementum. Donec viverra 
+                  auctor lobortis. Pellentesque eu est a nulla placerat dignissim. Morbi a 
+                  enim in magna semper bibendum. Etiam scelerisque, nunc ac egestas 
+                  consequat, odio nibh euismod nulla, eget auctor orci nibh vel nisi. 
+                  Aliquam erat volutpat. Mauris vel neque sit amet nunc gravida congue 
+                  sed sit amet purus. Quisque lacus quam, egestas ac tincidunt a, lacinia 
+                  vel velit. Aenean facilisis nulla vitae urna tincidunt.
+                  Nam vestibulum, arcu sodales feugiat consectetur, nisl orci bibendum 
+                  elit, eu euismod magna sapien ut nibh. Donec semper quam scelerisque 
+                  tortor. Mauris vel neque sit amet nunc gravida congue.</p>`
+      }
+    } 
+  },
   components: {
     post
   }
@@ -34,13 +53,5 @@ export default {
 <style>
 body {
   margin: 0;
-}
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 </style>
